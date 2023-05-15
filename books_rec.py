@@ -14,3 +14,24 @@ class Book(object):
 
 Ratings = dict()
 
+
+"""import json
+
+list1 = [1, 2, 3, 4, 5]
+list2 = ['a', 'b', 'c', 'd', 'e']
+list3 = ['Genre1', 'Genre2', 'Genre3', 'Genre4', 'Genre5']
+
+data = []
+
+for i in range(len(list1)):
+    item = {
+        'id': list1[i],
+        'name': list2[i],
+        'genres': list3[i]
+    }
+    data.append(item)
+
+with open('data.json', 'w') as file:
+    json.dump(data, file)"""
+
+
