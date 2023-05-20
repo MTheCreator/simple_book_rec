@@ -1,5 +1,3 @@
-class user(object):
-    def __init__(self, ID: int, Name: str, Genres: list):
 class Node:
     def __init__(self, data):
         self.data = data
