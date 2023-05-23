@@ -1,105 +1,32 @@
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-
-    def is_empty(self):
-        """ Returns True if the Linked list is empty, else None. """
-        return self.head is None
-
-    def append(self, data):
-        """ Adds a node to the end of the Linked list. """
-        new_node = Node(data)
-        if self.head is None:
-            self.head = new_node
-        else:
-            current = self.head
-            while current.next is not None:
-                current = current.next
-            current.next = new_node
-
-    def prepend(self, data):
-        """ Adds a node to the beggining of the Linked list. """
-        new_node = Node(data)
-        new_node.next = self.head
-        self.head = new_node
-
-    def delete(self, data):
-        """ Deletes the first occurence of a node with the inputed data if found. """
-        if self.head is None:
-            return
-
-        if self.head.data == data:
-            self.head = self.head.next
-            return
-
-        current = self.head
-        while current.next is not None:
-            if current.next.data == data:
-                current.next = current.next.next
-                return
-            current = current.next
-
-    def display(self):
-        """ Displays the data of each node in the Linked list. """
-        current = self.head
-        while current is not None:
-            print(current.data, end=" ")
-            current = current.next
-        print()
-
-class Stack:
-    def __init__(self):
-        self.linked_list = LinkedList()
-
-    def is_empty(self):
-        """ Returns True if the stack is empty, else False """
-        return self.linked_list.is_empty()
-
-    def push(self, data):
-        """ Pushes a node in the beggining of a stack. """
-        self.linked_list.prepend(data)
-
-    def pop(self):
-        """ Pops a node from the beggining of a stack whilst returning the data in the popped node. """
-        if self.is_empty():
-            raise IndexError("Stack is empty")
-        top_data = self.linked_list.head.data
-        self.linked_list.delete(top_data)
-        return top_data
-
-class Queue:
-    def __init__(self):
-        self.linked_list = LinkedList()
-
-    def is_empty(self):
-        """ Returns True if the queue is empty, else False """
-        return self.linked_list.is_empty()
-
-    def enqueue(self, data):
-        """ Adds a node to the tail of the queue. """
-        self.linked_list.append(data)
-
-    def dequeue(self):
-        """ Removes a node from the head of the queue, returns the data in the removed node. """
-        if self.is_empty():
-            raise IndexError("Queue is empty")
-        front_data = self.linked_list.head.data
-        self.linked_list.delete(front_data)
-        return front_data
-
+from usefulclasses import Node, LinkedList, Stack, Queue
 
 class user:
-    def __init__(self, id: int, name: str, fav_genres: LinkedList, library: LinkedList, whishlist: LinkedList):
+    def __init__(self, id: int, name: str, fav_genres: LinkedList, library: Queue, wishlist: Queue):
         self.id =id
         self.name = name
         self.fav_genres = fav_genres
         self.library = library
-        self.whishlist = whishlist
+        self.wishlist = wishlist
+        
+    def read_book(self):
+        pass
+    def rate_book(self):
+        pass
+    def add_to_wishlist(self):
+        pass
+
+    def search_author(self):
+
+    def search_book(self):
+
+    def search_genre(self):
+
+    def search_keywords(self):
+
+    def most_checked_genre(self):
+
+    def most_checked_author(self):
+
 
 
 class book:
