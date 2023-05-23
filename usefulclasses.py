@@ -61,6 +61,12 @@ class LinkedList:
             n += 1
             current = current.next
         return n
+    
+    def __iter__(self):
+        current = self.head
+        while current:
+            yield current
+            current = current.next
 
 class Stack:
     def __init__(self):
@@ -81,6 +87,10 @@ class Stack:
         top_data = self.linked_list.head.data
         self.linked_list.delete(top_data)
         return top_data
+    
+    def __iter__(self):
+        for current in self.linked_list:
+            yield current
 
 class Queue:
     def __init__(self):
@@ -102,9 +112,6 @@ class Queue:
         self.linked_list.delete(front_data)
         return front_data
     
-    def __iter__(self):
-        pass
-    
     
 # Heap sort for books database (max heap to get ascending order)
 
@@ -112,9 +119,9 @@ def max_heapify(books, heap_size, i):
     left = 2 * i + 1
     right = 2 * i + 2
     largest = i
-    if left < heap_size and books[left].rate < books[largest].rate:
+    if left < heap_size and books[left].rate > books[largest].rate:
         largest = left
-    if right < heap_size and books[right].rate < books[largest].rate:
+    if right < heap_size and books[right].rate > books[largest].rate:
         largest = right
     if largest != i:
         books[i], books[largest] = books[largest], books[i]
