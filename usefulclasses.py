@@ -63,6 +63,7 @@ class LinkedList:
         return n
     
     def __iter__(self):
+        """ Define iteration behavior"""
         current = self.head
         while current:
             yield current
