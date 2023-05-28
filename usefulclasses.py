@@ -69,30 +69,6 @@ class LinkedList:
             yield current
             current = current.next
 
-class Stack:
-    def __init__(self):
-        self.linked_list = LinkedList()
-
-    def is_empty(self):
-        """ Returns True if the stack is empty, else False """
-        return self.linked_list.is_empty()
-
-    def push(self, data):
-        """ Pushes a node in the beggining of a stack. """
-        self.linked_list.prepend(data)
-
-    def pop(self):
-        """ Pops a node from the beggining of a stack whilst returning the data in the popped node. """
-        if self.is_empty():
-            raise IndexError("Stack is empty")
-        top_data = self.linked_list.head.data
-        self.linked_list.delete(top_data)
-        return top_data
-    
-    def __iter__(self):
-        for current in self.linked_list:
-            yield current
-
 class Queue:
     def __init__(self):
         self.linked_list = LinkedList()
@@ -112,6 +88,10 @@ class Queue:
         front_data = self.linked_list.head.data
         self.linked_list.delete(front_data)
         return front_data
+    
+    def __iter__(self):
+        for elem in self.linked_list:
+            yield elem
     
     
 # Heap sort for books database (max heap to get ascending order)
