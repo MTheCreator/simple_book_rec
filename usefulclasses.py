@@ -2,6 +2,9 @@ class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
+        
+    def __str__(self):
+        return str(self.data)
 
 class LinkedList:
     def __init__(self):
@@ -49,7 +52,8 @@ class LinkedList:
         current = self.head
         printed = ""
         while current is not None:
-            printed += str(current.data) + "\n"
+            separation = ", " if current.next is not None else "."
+            printed += str(current.data) + separation
             current = current.next
         return printed
     
@@ -92,6 +96,9 @@ class Queue:
     def __iter__(self):
         for elem in self.linked_list:
             yield elem
+            
+    def __str__(self):
+        return str(self.linked_list)
     
     
 # Heap sort for books database (max heap to get ascending order)

@@ -22,9 +22,7 @@ def verify_genre_list(genres: list):
 def verify_isbn(isbn: str):
     if type(isbn) != str:
         raise TypeError("ISBN must be string of numbers")
-    elif len(isbn) != 10:
-        raise ValueError("ISBN must contain ten numbers")
-
+    
 def verify_rating(rating: float):
     if type(rating) != float:
         raise TypeError("Rating must be of type float")
@@ -65,19 +63,14 @@ def verify_name(name: str):
 def verify_fav_genres(genres: 'LinkedList'):
     if type(genres) != LinkedList:
         raise TypeError("List of genres must be of type linked list")
-    for genre in genres:
-        if type(genre) != str:
+    for node in genres:
+        if type(node.data) != str:
             raise TypeError("Genre must be of type string")
         
 def verify_user(user_id: int, name: str, genres: 'LinkedList'):
     verify_id(user_id)
     verify_name(name)
     verify_fav_genres(genres)
-    
-def verify_type_book(book: Book):
-    if type(book) != Book:
-        raise TypeError("Book must be of type Book Object")   
-
 
 def verify_rate(rate: int):
     if type(rate) != int:
